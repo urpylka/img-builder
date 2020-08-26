@@ -1,7 +1,7 @@
 name: CI
 
 env:
-  IMAGE_NAME: builder
+  PROJECT: builder
 
 on:
   push:
@@ -18,9 +18,7 @@ on:
   pull_request:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
 
