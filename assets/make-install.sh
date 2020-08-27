@@ -57,3 +57,11 @@ echo "> Installing packages: ${packs[@]}"
 apt install --no-install-recommends -y -qq ${packs[@]} \
 && echo "Everything was installed!" \
 || (echo "Some packages weren't installed!"; exit 1)
+
+echo "Install and enable Butterfly (web terminal)"
+echo "Workaround for tornado >= 6.0 breaking butterfly"
+export CRYPTOGRAPHY_DONT_BUILD_RUST=1
+pip3 install tornado==5.1.1
+pip3 install butterfly
+pip3 install butterfly[systemd]
+systemctl enable butterfly.sockets

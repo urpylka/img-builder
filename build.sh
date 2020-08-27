@@ -46,6 +46,9 @@ COPY '/make-once.sh' '/root/'
 EXEC '/make-init.sh' "\${PROJECT}" "\${IMAGE_VERSION}" "\${IMAGE_SOURCE}"
 EXEC '/make-install.sh'
 
+COPY '/butterfly/butterfly.service' '/lib/systemd/system/'
+COPY '/butterfly/butterfly.socket' '/lib/systemd/system/'
+
 COPY '/network/update_openvpn.service' '/lib/systemd/system/'
 COPY '/network/update_openvpn.sh' '/root/'
 COPY '/network/interfaces-client.conf' '/boot/img-builder/interfaces.d/client.uncommentme'
