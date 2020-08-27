@@ -1,0 +1,13 @@
+[Unit]
+Description=CMAVNode
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/cmavnode --file=/home/pi/cmn.cfg
+TimeoutStopSec=3s
+Restart=always
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target

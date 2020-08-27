@@ -1,0 +1,14 @@
+unit 100
+asyncmap 0000
+remotename l2tp
+ipparam beeline
+connect /bin/true
+mtu 1460
+mru 1460
+nodeflate
+nobsdcomp
+persist
+maxfail 0
+nopcomp
+noaccomp
+defaultroute

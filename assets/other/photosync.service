@@ -1,0 +1,23 @@
+[Unit]
+Description=Syncing photo from drone service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=sshpass -p 12345678 rsync --remove-source-files -arv root@10.5.0.2:/home/pi/photo /home/pi
+TimeoutStopSec=30s
+Restart=always
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target
+
+# Сервис photosync обеспечивает синхронизацию файлов
+# из каталога /user/pi/photo на дроне
+# в каталог /user/pi/photo на базовой станции.
+
+# apt install sshpass
+# systemctl enable $(pwd)/photosync.service
+# systemctl start photosync
+
+# есть еще такая штука как rsyncd (мб лучше использовать её)
