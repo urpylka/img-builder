@@ -51,7 +51,7 @@ cat << EOF >> /home/pi/.bashrc
 alias status='sudo systemctl status'
 alias start='sudo systemctl start'
 alias stop='sudo systemctl stop'
-alias restart'sudo systemctl restart'
+alias restart='sudo systemctl restart'
 alias enable='sudo systemctl enable'
 alias disable='sudo systemctl disable'
 alias reload='sudo systemctl reload'

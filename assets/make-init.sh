@@ -8,7 +8,7 @@ set -e # Exit immidiately on non-zero result
 
 echo "> Putting image information"
 cat >> "/etc/builder" << EOF
-image project: ${PROJECT}
+image project: ${1}
 image version: ${2}
 image original: ${3%.*}
 EOF
