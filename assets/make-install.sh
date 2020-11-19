@@ -35,7 +35,8 @@ packs=(); +(){ packs=(${packs[@]} ${@}); }
 # + nmap
 + git
 + vim nano
-+ tcpdump ltrace lsof
++ tcpdump lsof
+# + ltrace
 # + libpoco-dev
 + build-essential cmake
 # + ntpdate
