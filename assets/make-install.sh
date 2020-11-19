@@ -3,7 +3,7 @@
 set -e # Exit immidiately on non-zero result
 
 echo "> Installing repo signing key"
-curl http://repo.smirart.ru/repo_signing.key 2> /dev/null | apt-key add -
+curl http://repo.urpylka.com/repo_signing.key 2> /dev/null | apt-key add -
 
 # ========== Another method to add repo signing key ==========
 # https://yandex.ru/turbo?text=https%3A%2F%2Fcyber01.ru%2Fkak-ispravit-usr-bin-dirmngr-no-such-file-or-directory%2F
@@ -19,7 +19,7 @@ curl http://repo.smirart.ru/repo_signing.key 2> /dev/null | apt-key add -
 # ============================================================
 
 echo "> Adding repo address"
-echo "deb http://repo.smirart.ru/clever/ stretch main" > /etc/apt/sources.list.d/clever.list
+echo "deb http://repo.urpylka.com/clever/ stretch main" > /etc/apt/sources.list.d/clever.list
 
 ##################################################################################################
 
