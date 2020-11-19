@@ -10,7 +10,7 @@
 # copies or substantial portions of the Software.
 #
 
-docker run --privileged -i --rm -v $(pwd):/mnt urpylka/img-tool:0.6.1 /bin/bash - << EOF
+docker run --privileged -i --rm -v $(pwd):/mnt urpylka/img-tool:0.7 /bin/bash - << EOF
 
 set -e # Exit immidiately on non-zero result
 source img-tool
