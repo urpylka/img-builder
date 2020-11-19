@@ -1,7 +1,7 @@
 name: CI
 
 env:
-  PROJECT: builder
+  PROJECT: theimage
 
 on:
   push:
@@ -34,11 +34,18 @@ jobs:
 
       - name: Get version of the image
         run: |
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
-          # [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          TRAVIS_TAG=VERSION
+          if [[ "${{ github.ref }}" == "refs/tags/"* ]]; then
+            # Strip git ref prefix from version
+            V=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+            # Strip "v" prefix from tag name
+            V=$(echo ${V} | sed -e 's/^v//')
+          else
+            V="$(git log --format=%h -1)"
+          fi
+          # https://stackoverflow.com/questions/57968497/how-do-i-set-an-env-var-with-a-bash-expression-in-github-actions
+          echo "IMAGE_VERSION=${V}" >> ${GITHUB_ENV}
+          echo "PROJECT=${PROJECT}"
+          echo "IMAGE_VERSION=${V}"
 
       - name: Build image
         run: ./build.sh

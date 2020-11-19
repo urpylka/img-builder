@@ -10,8 +10,7 @@
 # copies or substantial portions of the Software.
 #
 
-docker run --privileged -i --rm -v $(pwd):/mnt urpylka/img-tool:0.7 /bin/bash - << EOF
-
+docker run --privileged -i --rm -v $(pwd):/mnt urpylka/img-tool:0.7.1 /bin/bash - << EOF
 set -e # Exit immidiately on non-zero result
 source img-tool
 
@@ -27,8 +26,9 @@ EXEC() { img-tool \${IMAGE_PATH} exec \${ASSETS_DIR}\${@:1}; }
 SIZE() { img-tool \${IMAGE_PATH} size \${@:1}; }
 LOAD() { img-tool \${IMAGE_PATH} load \${@:1}; }
 
-IMAGE_VERSION="\$(get_repo_ver \${MNT_DIR})"
-PROJECT="\${PROJECT:-"builder"}"
+PROJECT="${PROJECT:-"theimage"}"
+IMAGE_VERSION="${IMAGE_VERSION:-"\$(get_repo_ver \${MNT_DIR})"}"
+
 IMAGE_NAME="\${PROJECT}-\${IMAGE_VERSION}.img"
 IMAGE_PATH="\${IMAGES_DIR}/\${IMAGE_NAME}"
 IMAGE_SOURCE="https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspios_lite_arm64-2020-08-24/2020-08-20-raspios-buster-arm64-lite.zip"

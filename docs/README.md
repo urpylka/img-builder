@@ -12,4 +12,12 @@
 
 Project name is used for naming Wi-Fi access point, local hostname.
 
-To set own name of project you should to set `PROJECT` variable before run `./build.sh`. In Github Actions change it in `.github/workflows/makeimage.yml`. Otherwise will be used the name `builder`.
+To set own name of project you should to set `PROJECT` variable before run `./build.sh`. In Github Actions change it in `.github/workflows/makeimage.yml`. Otherwise will be used the name `theimage`.
+
+### Image version
+
+Image version is used in the name of image and you can check it inside image in `/etc/builder`.
+
+To set own version of the image you can set `IMAGE_VERSION` before run `./build.sh`. Otherwise will be used 7 digits of the last commit in the repo.
+
+> In Github Actions is used the tag or the branch name provided by `github.ref` env variable.
