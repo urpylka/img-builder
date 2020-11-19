@@ -7,3 +7,9 @@
 1. Fork it
 2. Change `build.sh`, `assets` dir (as you want).
 3. Run `./build.sh`
+
+### Project name
+
+Project name is used for naming Wi-Fi access point, local hostname.
+
+To set own name of project you should to set `PROJECT` variable before run `./build.sh`. In Github Actions change it in `.github/workflows/makeimage.yml`. Otherwise will be used the name `builder`.
