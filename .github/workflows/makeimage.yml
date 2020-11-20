@@ -57,29 +57,8 @@ jobs:
           name: ${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
           path: images/${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
 
-  push:
-
-    # https://github.com/marketplace/actions/github-releases
-    # https://github.com/marketplace/actions/create-release
-    # https://github.com/marketplace?type=actions&query=releases
-
-    # Ensure build job passes before pushing image.
-    needs: build
-
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use cached image
-        # https://github.com/actions/download-artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: ${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
-          path: images/${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
-
       - name: Publish image
+        if: startsWith(github.ref, 'refs/tags/')
         uses: fnkr/github-action-ghr@v1
         env:
           GHR_PATH: images/${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
