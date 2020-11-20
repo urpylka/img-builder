@@ -24,13 +24,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      # https://github.com/actions/upload-artifact
-
-      - name: Download cached image file
-        uses: actions/upload-artifact@v2
-        with:
-          name: images-dir
-          path: images
 
       - name: Get version of the image
         run: |
@@ -50,11 +43,19 @@ jobs:
       - name: Build image
         run: ./build.sh
 
+      - name: Fix perms
+        run: sudo chown -Rf runner:docker images
+
+      - name: Zip the image
+        run: |
+          zip -9 images/${PROJECT}-${IMAGE_VERSION}.zip images/${PROJECT}-${IMAGE_VERSION}.img
+
       - name: Upload cached image file
+        # https://github.com/actions/upload-artifact
         uses: actions/upload-artifact@v2
         with:
-          name: images-dir
-          path: images
+          name: ${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
+          path: images/${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
 
   push:
 
@@ -66,25 +67,20 @@ jobs:
     needs: build
 
     runs-on: ubuntu-latest
-    # if: "${{ github.ref }}" == "refs/tags/"*
     if: startsWith(github.ref, 'refs/tags/')
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Dowload builded image file
-        uses: actions/upload-artifact@v2
+      - name: Use cached image
+        # https://github.com/actions/download-artifact
+        uses: actions/download-artifact@v2
         with:
-          name: images-dir
-          path: images
-
-      - name: Zip the image
-        run: echo "Pass zipping"
+          name: ${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
+          path: images/${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
 
       - name: Publish image
         uses: fnkr/github-action-ghr@v1
-        if: startsWith(github.ref, 'refs/tags/')
         env:
-          GHR_COMPRESS: xz
-          GHR_PATH: images/
+          GHR_PATH: images/${{ env.PROJECT }}-${{ env.IMAGE_VERSION }}.zip
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
