@@ -21,3 +21,7 @@ Image version is used in the name of image and you can check it inside image in 
 To set own version of the image you can set `IMAGE_VERSION` before run `./build.sh`. Otherwise will be used 7 digits of the last commit in the repo.
 
 > In Github Actions is used the tag or the branch name provided by `github.ref` env variable.
+
+## Documentation
+
+* [Network](/docs/network.md)
