@@ -19,3 +19,26 @@ Settings place in three files:
 1. `/etc/dnsmasq.conf`
 2. `/etc/hostapd/hostapd.conf`
 3. `/etc/network/interfaces`
+
+## Other
+
+Earlier there was used `wpa_supplicant` as Wi-Fi access point.
+
+```conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+# systemctl status wifi-country
+country=US
+network={
+    ssid="Access point"
+    psk="password"
+    mode=2
+    proto=WPA RSN
+    key_mgmt=WPA-PSK
+    pairwise=CCMP
+    group=CCMP
+    auth_alg=OPEN
+}
+```
+
+But it was deprecated, beacuse it isn't correct way to use `wpa_supplicant`. Also there was used `dhcpcd` as network manager.
