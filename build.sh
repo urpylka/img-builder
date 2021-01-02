@@ -44,9 +44,6 @@ COPY '/make-once.sh' '/root/'
 EXEC '/make-init.sh' "\${PROJECT}" "\${IMAGE_VERSION}" "\${IMAGE_SOURCE}"
 EXEC '/make-install.sh'
 
-COPY '/network/interfaces.conf' '/etc/network/interfaces'
-COPY '/network/hostapd.conf' '/etc/hostapd/hostapd.conf'
-COPY '/network/dnsmasq.conf' '/etc/dnsmasq.conf'
 
 EXEC '/make-setup.sh'
 

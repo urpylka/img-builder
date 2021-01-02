@@ -11,10 +11,6 @@ hostnamectl set-hostname ${HOSTNAME}
 sed -i 's/127\.0\.1\.1.*/127.0.1.1\t'${HOSTNAME}' '${HOSTNAME}'.local/g' /etc/hosts
 # .local (mdns) hostname added to make it accesable when wlan and ethernet interfaces are down
 
-echo "> Setting up hostapd"
-sed -i "s/ssid=HOSTAPD/ssid=${HOSTNAME}/g" /etc/hostapd/hostapd.conf
-sed -i "s/wpa_passphrase=PASSWORD/wpa_passphrase=${HOSTNAME}/g" /etc/hostapd/hostapd.conf
-echo "SSID and PSK were set to ${HOSTNAME}"
 # TODO: Add 'change wifi-password' to /etc/motd
 
 echo "> Turning on sshd"

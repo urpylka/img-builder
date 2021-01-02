@@ -2,15 +2,8 @@
 
 set -e # Exit immidiately on non-zero result
 
-# Disabling wpa_supplicant & dhcpcd
-systemctl disable wpa_supplicant
-systemctl disable dhcpcd
 
-mkdir /var/log/dnsmasq
-touch /var/log/dnsmasq/dnsmasq.leases
 
-systemctl enable dnsmasq
-systemctl enable hostapd
 systemctl enable openvpn
 
 # systemctl enable openvpn-client@<name>
