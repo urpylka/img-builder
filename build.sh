@@ -44,6 +44,9 @@ COPY '/make-once.sh' '/root/'
 EXEC '/make-init.sh' "\${PROJECT}" "\${IMAGE_VERSION}" "\${IMAGE_SOURCE}"
 EXEC '/make-install.sh'
 
+COPY '/network/update-network.sh' '/root/'
+COPY '/network/theimage-client.ovpn' '/boot/img-builder/theimage-client.ovpn'
+COPY '/network/wpa_supplicant.conf' '/boot/img-builder/wpa_supplicant.ovpn'
 
 EXEC '/make-setup.sh'
 

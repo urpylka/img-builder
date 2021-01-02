@@ -2,12 +2,13 @@
 
 set -e # Exit immidiately on non-zero result
 
+echo "> Writing update-network.sh to /etc/rc.local"
+SCRIPT="sudo /root/update-network.sh"
+sed -i "18a${SCRIPT}" /etc/rc.local
 
+cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
 
 systemctl enable openvpn
-
-# systemctl enable openvpn-client@<name>
-# where <name>.conf in /etc/openvpn/client
 
 echo "> Setting to deny byobu to check available updates"
 sed -i "s/updates_available//" /usr/share/byobu/status/status
