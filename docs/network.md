@@ -29,6 +29,7 @@ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 # systemctl status wifi-country
 country=US
+
 network={
     ssid="Access point"
     psk="password"
@@ -42,3 +43,9 @@ network={
 ```
 
 But it was deprecated, beacuse it isn't correct way to use `wpa_supplicant`. Also there was used `dhcpcd` as network manager.
+
+> More about parameters of wpa_supplicant here:
+>
+> * [habr.com](https://habr.com/ru/post/315960/)
+> * [gist/penguinpowernz](https://gist.github.com/penguinpowernz/ce4ed0e64ce0fa99a5e335c1a4c954b3)
+> * [centos.name](https://centos.name/?page/howto/Laptops/WpaSupplicant)
