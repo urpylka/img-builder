@@ -46,7 +46,7 @@ EXEC '/make-install.sh'
 
 COPY '/network/update-network.sh' '/root/'
 COPY '/network/theimage-client.ovpn' '/boot/img-builder/theimage-client.ovpn'
-COPY '/network/wpa_supplicant.conf' '/boot/img-builder/wpa_supplicant.ovpn'
+COPY '/network/wpa_supplicant.conf' '/boot/img-builder/wpa_supplicant.conf'
 
 EXEC '/make-setup.sh'
 
