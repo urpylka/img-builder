@@ -3,7 +3,7 @@
 set -e # Exit immidiately on non-zero result
 
 echo "> Installing repo signing key"
-curl http://repo.urpylka.com/repo_signing.key 2> /dev/null | apt-key add -
+curl http://repo.urpylka.com/repo_signing.key 2> /dev/null | apt-key add -qq -
 
 # ========== Another method to add repo signing key ==========
 # https://yandex.ru/turbo?text=https%3A%2F%2Fcyber01.ru%2Fkak-ispravit-usr-bin-dirmngr-no-such-file-or-directory%2F
@@ -24,7 +24,7 @@ echo "deb http://repo.urpylka.com/clever/ stretch main" > /etc/apt/sources.list.
 ##################################################################################################
 
 echo "> Collecting repositories indexes"
-apt update
+apt update -qq
 
 echo "> Collecting packages to bash array"
 packs=(); +(){ packs=(${packs[@]} ${@}); }
@@ -51,6 +51,6 @@ packs=(); +(){ packs=(${packs[@]} ${@}); }
 # + xl2tpd strongswan
 
 echo "> Installing packages: ${packs[@]}"
-apt install --no-install-recommends -y ${packs[@]} \
+apt install --no-install-recommends -y -qq ${packs[@]} \
 && echo "Everything was installed!" \
 || (echo "Some packages weren't installed!"; exit 1)
