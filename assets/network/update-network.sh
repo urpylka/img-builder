@@ -6,7 +6,7 @@ get_md5() {
 
 SERVICE_OVPN=theimage-client
 PATH_BOOT_OVPN=/boot/img-builder/${SERVICE_OVPN}.ovpn
-PATH_TRGT_OVPN=/etc/openvpn/client/${SERVICE_OVPN}.ovpn
+PATH_TRGT_OVPN=/etc/openvpn/client/${SERVICE_OVPN}.conf
 
 MD5_DFLT_OVPN=bde4551474bb03805d8a543939568fd0
 MD5_BOOT_OVPN=$(get_md5 ${PATH_BOOT_OVPN})
