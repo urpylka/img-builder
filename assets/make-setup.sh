@@ -8,6 +8,8 @@ sed -i "20a${SCRIPT}" /etc/rc.local
 
 cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
 
+systemctl disable hostapd
+systemctl disable dnsmasq
 systemctl enable openvpn
 
 echo "> Setting to deny byobu to check available updates"
