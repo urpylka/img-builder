@@ -7,7 +7,7 @@ get_md5() {
     md5sum ${1} 2>/dev/null | awk '{print $1}'
 }
 
-SERVICE_OVPN=theimage-client
+SERVICE_OVPN=theimage
 PATH_BOOT_OVPN=/boot/img-builder/${SERVICE_OVPN}.ovpn
 PATH_TRGT_OVPN=/etc/openvpn/client/${SERVICE_OVPN}.conf
 
@@ -26,7 +26,7 @@ else
     cp -f ${PATH_BOOT_OVPN} ${PATH_TRGT_OVPN}
     systemctl start openvpn-client@${SERVICE_OVPN}
     # systemctl enable openvpn-client@${SERVICE_OVPN}
-    # where ${SERVICE_OVPN}.conf in /etc/openvpn/client
+    # where ${SERVICE_OVPN}.conf in /etc/openvpn/client/
 fi
 
 PATH_BOOT_WPAS=/boot/img-builder/wpa_supplicant.conf
