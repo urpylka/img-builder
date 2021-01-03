@@ -37,8 +37,5 @@ systemctl disable hciuart.service
 echo "> Turning on v4l2 driver"
 [[ `grep -q "^bcm2835-v4l2" /etc/modules` ]] || printf "bcm2835-v4l2\n" >> /etc/modules;
 
-echo "> Enabling Wi-Fi by rfkill"
-rfkill unblock wifi
-
 echo "> Removing once-script"
 rm /root/make-once.sh

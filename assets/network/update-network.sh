@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 
+echo "> Enabling Wi-Fi by rfkill"
+rfkill unblock wifi
+
 get_md5() {
     md5sum ${1} 2>/dev/null | awk '{print $1}'
 }
