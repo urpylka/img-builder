@@ -4,7 +4,7 @@ set -e # Exit immidiately on non-zero result
 
 echo "> Writing update-network.sh to /etc/rc.local"
 SCRIPT="sudo /root/update-network.sh"
-sed -i "18a${SCRIPT}" /etc/rc.local
+sed -i "20a${SCRIPT}" /etc/rc.local
 
 cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
 
