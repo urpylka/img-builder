@@ -4,6 +4,7 @@ set -e # Exit immidiately on non-zero result
 
 echo "> Installing repo signing key"
 curl http://repo.urpylka.com/repo_signing.key 2> /dev/null | apt-key add -qq -
+curl -fsSL "https://download.docker.com/linux/debian/gpg" | apt-key add -qq -
 
 # ========== Another method to add repo signing key ==========
 # https://yandex.ru/turbo?text=https%3A%2F%2Fcyber01.ru%2Fkak-ispravit-usr-bin-dirmngr-no-such-file-or-directory%2F
@@ -20,6 +21,7 @@ curl http://repo.urpylka.com/repo_signing.key 2> /dev/null | apt-key add -qq -
 
 echo "> Adding repo address"
 echo "deb http://repo.urpylka.com/clever/ stretch main" > /etc/apt/sources.list.d/clever.list
+echo "deb [arch=arm64] https://download.docker.com/linux/debian buster stable" > /etc/apt/sources.list.d/docker.list
 
 ##################################################################################################
 
@@ -49,6 +51,7 @@ packs=(); +(){ packs=(${packs[@]} ${@}); }
 + dnsmasq hostapd bridge-utils openvpn
 # + net-tools
 # + xl2tpd strongswan
++ docker-ce
 
 echo "> Installing packages: ${packs[@]}"
 apt install --no-install-recommends -y -qq ${packs[@]} \

@@ -12,6 +12,8 @@ systemctl disable hostapd
 systemctl disable dnsmasq
 systemctl enable openvpn
 
+usermod -aG docker pi
+
 echo "> Setting to deny byobu to check available updates"
 sed -i "s/updates_available//" /usr/share/byobu/status/status
 # sed -i "s/updates_available//" /home/pi/.byobu/status
