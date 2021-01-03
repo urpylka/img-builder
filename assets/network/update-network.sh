@@ -36,7 +36,7 @@ MD5_TRGT_WPAS=$(get_md5 ${PATH_TRGT_WPAS})
 if [[ ${MD5_BOOT_WPAS} == ${MD5_DFLT_WPAS} ]]; then
     echo "> Change ${PATH_BOOT_WPAS}"
 elif  [[ ${MD5_BOOT_WPAS} == ${MD5_TRGT_WPAS} ]] && [[ -f ${PATH_BOOT_WPAS} ]]; then
-    # Nothing to do
+    echo "> Nothing to do"
 else
     cp -f ${PATH_BOOT_WPAS} ${PATH_TRGT_WPAS}
 fi
