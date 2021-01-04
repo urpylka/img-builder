@@ -25,6 +25,8 @@ sed -i 's/#SystemMaxUse=/SystemMaxUse=200M/' /etc/systemd/journald.conf
 echo "> Changing default keyboard layout to US"
 sed -i 's/XKBLAYOUT="gb"/XKBLAYOUT="us"/g' /etc/default/keyboard
 
+# https://pip.pypa.io/en/stable/installing/
+
 # perl: warning: Setting locale failed.
 # perl: warning: Please check that your locale settings:
 # 	LANGUAGE = (unset),
