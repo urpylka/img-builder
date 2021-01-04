@@ -32,7 +32,7 @@ echo "> Collecting packages to bash array"
 packs=(); +(){ packs=(${packs[@]} ${@}); }
 
 + unzip zip
-+ python3 python3-dev ipython3
++ python3 python3-dev ipython3 python3-pip
 + screen byobu tmux
 # + nmap
 + git
