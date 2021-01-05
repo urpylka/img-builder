@@ -42,4 +42,6 @@ elif  [[ ${MD5_BOOT_WPAS} == ${MD5_TRGT_WPAS} ]] && [[ -f ${PATH_BOOT_WPAS} ]]; 
     echo "> Nothing to do"
 else
     cp -f ${PATH_BOOT_WPAS} ${PATH_TRGT_WPAS}
+    systemctl daemon-reload
+    systemctl restart dhcpcd
 fi
