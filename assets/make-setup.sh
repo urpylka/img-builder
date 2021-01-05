@@ -48,8 +48,8 @@ sed -i 's/XKBLAYOUT="gb"/XKBLAYOUT="us"/g' /etc/default/keyboard
 # export LC_ALL='C.UTF-8'
 # EOF
 
-sed -i 's/en_GB.UTF-8 UTF-8/#en_GB.UTF-8 UTF-8/' /etc/locale.gen
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+# sed -i 's/en_GB.UTF-8 UTF-8/#en_GB.UTF-8 UTF-8/' /etc/locale.gen
+# sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 
 echo "> Setting a short aliases"
 cat << EOF >> /home/pi/.bashrc
