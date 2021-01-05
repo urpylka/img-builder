@@ -1,14 +1,11 @@
 #! /usr/bin/env bash
 
-echo "> Enabling Wi-Fi by rfkill"
-rfkill unblock wifi
-
 get_md5() {
     md5sum ${1} 2>/dev/null | awk '{print $1}'
 }
 
 SERVICE_OVPN=theimage
-PATH_BOOT_OVPN=/boot/img-builder/${SERVICE_OVPN}.ovpn
+PATH_BOOT_OVPN=/boot/img-builder/${SERVICE_OVPN}.conf
 PATH_TRGT_OVPN=/etc/openvpn/client/${SERVICE_OVPN}.conf
 
 MD5_DFLT_OVPN=bde4551474bb03805d8a543939568fd0
@@ -42,6 +39,25 @@ elif  [[ ${MD5_BOOT_WPAS} == ${MD5_TRGT_WPAS} ]] && [[ -f ${PATH_BOOT_WPAS} ]]; 
     echo "> Nothing to do"
 else
     cp -f ${PATH_BOOT_WPAS} ${PATH_TRGT_WPAS}
-    systemctl daemon-reload
-    systemctl restart dhcpcd
+    NEED_RESTART_NTWR=yes
+fi
+
+PATH_BOOT_NTWR=/boot/img-builder/interfaces.conf
+PATH_TRGT_NTWR=/etc/network/interfaces
+
+MD5_DFLT_NTWR=71d49149ca4f0cd13a60fd46258c0075
+MD5_BOOT_NTWR=$(get_md5 ${PATH_BOOT_NTWR})
+MD5_TRGT_NTWR=$(get_md5 ${PATH_TRGT_NTWR})
+
+if [[ ${MD5_BOOT_NTWR} == ${MD5_DFLT_NTWR} ]]; then
+    echo "> Change ${PATH_BOOT_NTWR}"
+elif  [[ ${MD5_BOOT_NTWR} == ${MD5_TRGT_NTWR} ]] && [[ -f ${PATH_BOOT_NTWR} ]]; then
+    echo "> Nothing to do"
+else
+    cp -f ${PATH_BOOT_NTWR} ${PATH_TRGT_NTWR}
+    NEED_RESTART_NTWR=yes
+fi
+
+if [[ "${NEED_RESTART_NTWR}" == "yes" ]]; then
+    systemctl restart networking
 fi
