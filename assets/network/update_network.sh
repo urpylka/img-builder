@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+# TODO: do changies before the networking service
+
 get_md5() {
     md5sum ${1} 2>/dev/null | awk '{print $1}'
 }
