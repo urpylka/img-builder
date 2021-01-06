@@ -51,13 +51,11 @@ MD5_DFLT_NTWR=71d49149ca4f0cd13a60fd46258c0075
 MD5_BOOT_NTWR=$(get_md5 ${PATH_BOOT_NTWR})
 MD5_TRGT_NTWR=$(get_md5 ${PATH_TRGT_NTWR})
 
-if [[ ${MD5_BOOT_NTWR} == ${MD5_DFLT_NTWR} ]]; then
-    echo "> Change ${PATH_BOOT_NTWR}"
-elif  [[ ${MD5_BOOT_NTWR} == ${MD5_TRGT_NTWR} ]] && [[ -f ${PATH_BOOT_NTWR} ]]; then
-    echo "> Nothing to do"
-else
+if [[ -f ${PATH_BOOT_NTWR} ]] && [[ ${MD5_BOOT_NTWR} != ${MD5_TRGT_NTWR} ]]; then
     cp -f ${PATH_BOOT_NTWR} ${PATH_TRGT_NTWR}
     NEED_RESTART_NTWR=yes
+else
+    echo "> Nothing to do for 'interfaces'"
 fi
 
 if [[ "${NEED_RESTART_NTWR}" == "yes" ]]; then
