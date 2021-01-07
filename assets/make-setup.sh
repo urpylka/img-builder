@@ -11,9 +11,9 @@ cp /etc/network/interfaces /etc/network/interfaces.orig
 
 systemctl disable dhcpcd
 systemctl disable wpa_supplicant
+systemctl enable openvpn
 systemctl disable hostapd
 systemctl disable dnsmasq
-systemctl enable openvpn
 
 usermod -aG docker pi
 
