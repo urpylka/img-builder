@@ -2,7 +2,7 @@
 
 set -e # Exit immidiately on non-zero result
 
-PROJECT=$(cat /etc/builder | grep "image project" | awk -F ': ' '{print $2}')
+PROJECT=$(cat /boot/img-builder/theimage.conf | grep "image_project" | awk -F ': ' '{print $2}')
 HOSTNAME="${PROJECT}-$(head -c 100 /dev/urandom | xxd -ps -c 100 | sed -e "s/[^0-9]//g" | cut -c 1-4)"
 HOSTNAME=$(echo ${HOSTNAME} | tr '[:upper:]' '[:lower:]')
 
