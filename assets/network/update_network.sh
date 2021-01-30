@@ -6,6 +6,8 @@ get_md5() {
     md5sum ${1} 2>/dev/null | awk '{print $1}'
 }
 
+echo "> OpenVPN configuration"
+
 SERVICE_OVPN=theimage
 PATH_BOOT_OVPN=/boot/img-builder/${SERVICE_OVPN}.conf
 PATH_TRGT_OVPN=/etc/openvpn/client/${SERVICE_OVPN}.conf
@@ -28,6 +30,8 @@ else
     # where ${SERVICE_OVPN}.conf in /etc/openvpn/client/
 fi
 
+echo "> WPA supplicant configuration"
+
 PATH_BOOT_WPAS=/boot/img-builder/wpa_supplicant.conf
 PATH_TRGT_WPAS=/etc/wpa_supplicant/wpa_supplicant.conf
 
@@ -43,6 +47,8 @@ else
     cp -f ${PATH_BOOT_WPAS} ${PATH_TRGT_WPAS}
     NEED_RESTART_NTWR=yes
 fi
+
+echo "> WPA supplicant configuration"
 
 PATH_BOOT_NTWR=/boot/img-builder/interfaces.conf
 PATH_TRGT_NTWR=/etc/network/interfaces
