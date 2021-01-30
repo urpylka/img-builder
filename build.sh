@@ -47,7 +47,8 @@ EXEC '/make-init.sh' "\${PROJECT}" "\${IMAGE_VERSION}" "\${IMAGE_SOURCE}"
 EXEC '/make-install.sh'
 
 COPY '/network/update_network.sh' '/root/'
-COPY '/network/interfaces.conf' '/boot/img-builder/'
+COPY '/network/interfaces-client.conf' '/boot/img-builder/'
+COPY '/network/interfaces-router.conf' '/boot/img-builder/'
 COPY '/network/theimage.conf' '/boot/img-builder/'
 COPY '/network/hostapd.conf' '/boot/img-builder/'
 COPY '/network/dnsmasq.conf' '/boot/img-builder/'
