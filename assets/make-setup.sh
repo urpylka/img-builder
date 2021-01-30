@@ -15,6 +15,9 @@ systemctl enable openvpn
 systemctl disable hostapd
 systemctl disable dnsmasq
 
+mkdir /var/log/dnsmasq
+touch /var/log/dnsmasq/dnsmasq.leases
+
 usermod -aG docker pi
 
 echo "> Setting to deny byobu to check available updates"
