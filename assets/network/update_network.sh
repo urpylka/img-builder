@@ -30,24 +30,6 @@ else
     # where ${SERVICE_OVPN}.conf in /etc/openvpn/client/
 fi
 
-echo "> WPA supplicant configuration"
-
-PATH_BOOT_WPAS=/boot/img-builder/wpa_supplicant.conf
-PATH_TRGT_WPAS=/etc/wpa_supplicant/wpa_supplicant.conf
-
-MD5_DFLT_WPAS=81c5b5c0cf49e9aa83e9517dd6a02a05
-MD5_BOOT_WPAS=$(get_md5 ${PATH_BOOT_WPAS})
-MD5_TRGT_WPAS=$(get_md5 ${PATH_TRGT_WPAS})
-
-if [[ ${MD5_BOOT_WPAS} == ${MD5_DFLT_WPAS} ]]; then
-    echo "> Change ${PATH_BOOT_WPAS}"
-elif  [[ ${MD5_BOOT_WPAS} == ${MD5_TRGT_WPAS} ]] && [[ -f ${PATH_BOOT_WPAS} ]]; then
-    echo "> Nothing to do"
-else
-    cp -f ${PATH_BOOT_WPAS} ${PATH_TRGT_WPAS}
-    NEED_RESTART_NTWR=yes
-fi
-
 echo "> Networking configuration"
 
 PATH_BOOT_NTWR=$(cat /boot/img-builder/theimage.conf | grep "image_interfaces" | awk -F ': ' '{print $2}')
