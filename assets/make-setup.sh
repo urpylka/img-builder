@@ -2,8 +2,7 @@
 
 set -e # Exit immidiately on non-zero result
 
-cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
-cp /etc/network/interfaces /etc/network/interfaces.orig
+mv /etc/network/interfaces /etc/network/interfaces.orig
 
 systemctl disable dhcpcd
 systemctl disable wpa_supplicant
