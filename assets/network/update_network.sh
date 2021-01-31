@@ -65,5 +65,6 @@ else
 fi
 
 if [[ "${NEED_RESTART_NTWR}" == "yes" ]]; then
-    systemctl restart networking
+    echo "> It needs to be restarted"
+    # systemctl restart networking
 fi

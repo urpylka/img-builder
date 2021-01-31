@@ -1,0 +1,14 @@
+[Unit]
+Description=Update network service
+Before=network-pre.target
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/root/update_network.sh
+
+[Install]
+WantedBy=multi-user.target
+
+# https://unix.stackexchange.com/questions/229048/how-to-start-a-systemd-service-before-networking-starts
+# https://losst.ru/avtozagruzka-linux

@@ -2,10 +2,6 @@
 
 set -e # Exit immidiately on non-zero result
 
-echo "> Writing update-network.sh to /etc/rc.local"
-SCRIPT="sudo /root/update_network.sh"
-sed -i "20a${SCRIPT}" /etc/rc.local
-
 cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
 cp /etc/network/interfaces /etc/network/interfaces.orig
 
@@ -14,6 +10,7 @@ systemctl disable wpa_supplicant
 systemctl enable openvpn
 systemctl disable hostapd
 systemctl disable dnsmasq
+systemctl disable update_network
 
 mkdir /var/log/dnsmasq
 touch /var/log/dnsmasq/dnsmasq.leases
