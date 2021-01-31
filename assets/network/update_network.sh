@@ -48,12 +48,12 @@ else
     NEED_RESTART_NTWR=yes
 fi
 
-echo "> WPA supplicant configuration"
+echo "> Networking configuration"
 
-PATH_BOOT_NTWR=/boot/img-builder/interfaces.conf
+PATH_BOOT_NTWR=/boot/img-builder/interfaces-router.conf
 PATH_TRGT_NTWR=/etc/network/interfaces
 
-MD5_DFLT_NTWR=71d49149ca4f0cd13a60fd46258c0075
+MD5_DFLT_NTWR=9534ea70afa6cd08850e4ea8472e6536
 MD5_BOOT_NTWR=$(get_md5 ${PATH_BOOT_NTWR})
 MD5_TRGT_NTWR=$(get_md5 ${PATH_TRGT_NTWR})
 
