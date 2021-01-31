@@ -50,7 +50,7 @@ fi
 
 echo "> Networking configuration"
 
-PATH_BOOT_NTWR=/boot/img-builder/interfaces-router.conf
+PATH_BOOT_NTWR=$(cat /boot/img-builder/theimage.conf | grep "image_interfaces" | awk -F ': ' '{print $2}')
 PATH_TRGT_NTWR=/etc/network/interfaces
 
 MD5_DFLT_NTWR=9534ea70afa6cd08850e4ea8472e6536
