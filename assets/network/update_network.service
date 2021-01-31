@@ -12,3 +12,4 @@ WantedBy=multi-user.target
 
 # https://unix.stackexchange.com/questions/229048/how-to-start-a-systemd-service-before-networking-starts
 # https://losst.ru/avtozagruzka-linux
+# https://habr.com/ru/post/437634/
