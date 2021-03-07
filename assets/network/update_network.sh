@@ -29,24 +29,3 @@ else
     # systemctl enable openvpn-client@${SERVICE_OVPN}
     # where ${SERVICE_OVPN}.conf in /etc/openvpn/client/
 fi
-
-echo "> Networking configuration"
-
-PATH_BOOT_NTWR=$(cat /boot/img-builder/theimage.conf | grep "image_interfaces" | awk -F ': ' '{print $2}')
-PATH_TRGT_NTWR=/etc/network/interfaces
-
-MD5_DFLT_NTWR=9534ea70afa6cd08850e4ea8472e6536
-MD5_BOOT_NTWR=$(get_md5 ${PATH_BOOT_NTWR})
-MD5_TRGT_NTWR=$(get_md5 ${PATH_TRGT_NTWR})
-
-if [[ -f ${PATH_BOOT_NTWR} ]] && [[ ${MD5_BOOT_NTWR} != ${MD5_TRGT_NTWR} ]]; then
-    cp -f ${PATH_BOOT_NTWR} ${PATH_TRGT_NTWR}
-    NEED_RESTART_NTWR=yes
-else
-    echo "> Nothing to do for 'interfaces'"
-fi
-
-if [[ "${NEED_RESTART_NTWR}" == "yes" ]]; then
-    echo "> It needs to be restarted"
-    # systemctl restart networking
-fi
