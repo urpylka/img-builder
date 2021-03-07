@@ -12,7 +12,6 @@ cat >> "/boot/img-builder/theimage.conf" << EOF
 image_project=${1}
 image_version=${2}
 image_original=${3}
-image_interfaces=/boot/img-builder/interfaces-router.conf
 image_id=TEMP
 EOF
 
