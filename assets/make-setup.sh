@@ -3,6 +3,7 @@
 set -e # Exit immidiately on non-zero result
 
 ln -s /boot/img-builder/interfaces-router.conf /etc/network/interfaces.d/interfaces-router
+# ln -s /boot/img-builder/interfaces-client.conf /etc/network/interfaces.d/interfaces-client
 
 systemctl disable dhcpcd
 systemctl disable wpa_supplicant
