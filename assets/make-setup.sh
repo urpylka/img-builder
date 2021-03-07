@@ -2,14 +2,14 @@
 
 set -e # Exit immidiately on non-zero result
 
-mv /etc/network/interfaces /etc/network/interfaces.orig
+ln -s /boot/img-builder/interfaces-router.conf /etc/network/interfaces.d/interfaces-router
 
 systemctl disable dhcpcd
 systemctl disable wpa_supplicant
 systemctl enable openvpn
 systemctl disable hostapd
 systemctl disable dnsmasq
-systemctl disable update_network
+systemctl enable update_openvpn
 
 mkdir /var/log/dnsmasq
 touch /var/log/dnsmasq/dnsmasq.leases

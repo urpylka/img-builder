@@ -5,7 +5,7 @@ Wants=network-pre.target
 
 [Service]
 Type=oneshot
-ExecStart=/root/update_network.sh
+ExecStart=/root/update_openvpn.sh
 
 [Install]
 WantedBy=multi-user.target
