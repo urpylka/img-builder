@@ -7,6 +7,7 @@ set -e # Exit immidiately on non-zero result
 [[ -z ${3} ]] && (echo "Wasn't set the original url"; exit 1)
 
 echo "> Putting image information"
+mkdir /boot/img-builder
 cat >> "/boot/img-builder/theimage.conf" << EOF
 image_project=${1}
 image_version={2}
