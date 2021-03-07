@@ -2,8 +2,12 @@
 
 set -e # Exit immidiately on non-zero result
 
-ln -s /boot/img-builder/interfaces-router.conf /etc/network/interfaces.d/interfaces-router
-# ln -s /boot/img-builder/interfaces-client.conf /etc/network/interfaces.d/interfaces-client
+
+echo "> Add redirect to interfaces.d"
+mkdir -p /boot/img-builder/interfaces.d 2>/dev/null
+cat >> "/etc/network/interfaces.d/redirect" << EOF
+source-directory /boot/img-builder/interfaces.d
+EOF
 
 systemctl disable dhcpcd
 systemctl disable wpa_supplicant
