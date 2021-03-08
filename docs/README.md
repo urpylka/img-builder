@@ -1,6 +1,8 @@
 # img-builder
 
-`img-builder` is a software for preparing Raspbian OS images. It based on [`img-tool`](https://github.com/urpylka/img-tool). It works by an incremental operations inside an initial image.
+`img-builder` is a software for preparing Raspbian OS images. It based on [`img-tool`](https://github.com/urpylka/img-tool). It works by an incremental operations inside the initial image.
+
+There are stable versions of prepared images, you can find them in Github releases to test that.
 
 ## Quick start
 
@@ -24,4 +26,5 @@ To set own version of the image you can set `IMAGE_VERSION` before run `./build.
 
 ## Documentation
 
+* [Initialization](/docs/initialization.md)
 * [Network](/docs/network.md)

@@ -1,6 +1,12 @@
 # Network
 
+Image's network based on `ifup`, `ifdown` and `networking` service. File `/etc/network/interfaces.d/redirect` has the string to use configs from `/boot/img-builder/interfaces.d`. All files without the extension will be used by `networking` service.
+
+There are two pre-configurations of network `/boot/img-builder/interfaces.d/router` and `/boot/img-builder/interfaces.d/client.uncommentme`.
+
 Default network is setup as router.
+
+## Router
 
 `wlan0` and `eth0` is combined by bridge-utils to `br0`.
 
@@ -16,11 +22,15 @@ There is `hostapd`. It provide Wi-Fi AP. It's called `project-1234`.
 
 Settings place in three files:
 
-1. `/etc/dnsmasq.conf`
-2. `/etc/hostapd/hostapd.conf`
-3. `/etc/network/interfaces`
+1. `/boot/img-builder/dnsmasq.conf`
+2. `/boot/img-builder/hostapd.conf`
+3. `/boot/img-builder/interfaces.d/`
 
-## Other
+## Client
+
+To use client version you need to comment router-config file and uncomment client-config. After that you need to change `/boot/img-builder/wpa_supplicant.conf` (setup one or more Wi-Fi networks used to connect to them).
+
+### wpa_supplicant
 
 Earlier there was used `wpa_supplicant` as Wi-Fi access point.
 
