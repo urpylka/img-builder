@@ -15,9 +15,15 @@ systemctl enable openvpn
 systemctl disable hostapd
 systemctl disable dnsmasq
 systemctl enable update_openvpn
+systemctl disable strongswan
+systemctl disable xl2tpd
 
 mkdir /var/log/dnsmasq
 touch /var/log/dnsmasq/dnsmasq.leases
+
+mv /etc/xl2tpd/xl2tpd.conf /etc/xl2tpd/xl2tpd.conf.orig
+ln -s /boot/img-builder/beeline/options.xl2tpd /etc/ppp/options.xl2tpd
+ln -s /boot/img-builder/beeline/xl2tpd.conf /etc/xl2tpd/xl2tpd.conf
 
 usermod -aG docker pi
 

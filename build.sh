@@ -54,6 +54,7 @@ COPY '/network/openvpn.conf' '/boot/img-builder/'
 COPY '/network/hostapd.conf' '/boot/img-builder/'
 COPY '/network/dnsmasq.conf' '/boot/img-builder/'
 COPY '/network/wpa_supplicant.conf' '/boot/img-builder/'
+COPY '/network/beeline' '/boot/img-builder/'
 
 EXEC '/make-setup.sh'
 

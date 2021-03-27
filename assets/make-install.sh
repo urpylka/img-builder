@@ -50,7 +50,7 @@ packs=(); +(){ packs=(${packs[@]} ${@}); }
 + dkms usb-modeswitch
 + dnsmasq hostapd bridge-utils openvpn
 # + net-tools
-# + xl2tpd strongswan
++ xl2tpd strongswan
 + docker-ce docker-compose
 
 echo "> Installing packages: ${packs[@]}"
