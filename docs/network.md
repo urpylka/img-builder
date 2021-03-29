@@ -1,6 +1,6 @@
 # Network
 
-Image's network based on `ifup`, `ifdown` and `networking` service. File `/etc/network/interfaces.d/redirect` has the string to use configs from `/boot/img-builder/interfaces.d`. All files without the extension will be used by `networking` service.
+Image's network based on `networking` service. It uses `ifup`, `ifdown` utilites. File `/etc/network/interfaces.d/redirect` has the string to use configs from `/boot/img-builder/interfaces.d`. All files without extensions will be used by `networking` service.
 
 There are two pre-configurations of network `/boot/img-builder/interfaces.d/router` and `/boot/img-builder/interfaces.d/client.uncommentme`.
 
@@ -22,7 +22,7 @@ There is `hostapd`. It provide Wi-Fi AP. It's called `project-1234`.
 
 Settings place in three files:
 
-1. `/boot/img-builder/dnsmasq.conf`
+1. `/boot/img-builder/dnsmasq.conf` (temporary isn't used)
 2. `/boot/img-builder/hostapd.conf`
 3. `/boot/img-builder/interfaces.d/`
 
