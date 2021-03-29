@@ -34,8 +34,9 @@ echo "> Turning on SPI"
 echo "> Turning on raspicam"
 /usr/bin/raspi-config nonint do_camera 0
 
-echo "> Turning on UART and switching off console there"
-/usr/bin/raspi-config nonint do_serial 2
+echo "> Turning on UART and switching on console"
+/usr/bin/raspi-config nonint do_serial 0
+# Use '2' to switch off console
 
 echo "> Disabling bluetooth on the serial port"
 # https://scribles.net/disabling-bluetooth-on-raspberry-pi/
