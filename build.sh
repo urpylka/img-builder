@@ -12,7 +12,7 @@
 
 [[ $(git status | tail -n 1) == "nothing to commit, working tree clean" ]] \
     || (echo "Commit all changies or stash it and try again."; exit 1)  \
-    && docker run --privileged -i --rm -v $(pwd):/mnt urpylka/img-tool:0.7.1 /bin/bash - << EOF
+    && docker run --privileged -i --rm -v $(pwd):/mnt urpylka/img-tool:0.7.2 /bin/bash - << EOF
 set -e # Exit immidiately on non-zero result
 source img-tool
 
