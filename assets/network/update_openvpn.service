@@ -1,7 +1,7 @@
 [Unit]
-Description=Update network service
-Before=network-pre.target
-Wants=network-pre.target
+Description=Update openvpn service
+# Before=network-pre.target
+# Wants=network-pre.target
 
 [Service]
 Type=oneshot
