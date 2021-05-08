@@ -33,7 +33,7 @@ IMAGE_VERSION="${IMAGE_VERSION:-"\$(get_repo_ver \${MNT_DIR})"}"
 
 IMAGE_NAME="\${PROJECT}-\${IMAGE_VERSION}.img"
 IMAGE_PATH="\${IMAGES_DIR}/\${IMAGE_NAME}"
-IMAGE_SOURCE="https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspios_lite_arm64-2020-08-24/2020-08-20-raspios-buster-arm64-lite.zip"
+IMAGE_SOURCE="https://armbian.systemonachip.net/dl/nanopim4v2/archive/Armbian_21.02.3_Nanopim4v2_buster_current_5.10.21.img.xz"
 
 ###################################################################################################
 
