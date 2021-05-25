@@ -51,7 +51,7 @@ packs=(); +(){ packs=(${packs[@]} ${@}); }
 + dnsmasq hostapd bridge-utils openvpn
 # + net-tools
 # + xl2tpd strongswan
-+ docker-ce
++ docker-ce docker-compose
 
 echo "> Installing packages: ${packs[@]}"
 apt install --no-install-recommends -y -qq ${packs[@]} \
