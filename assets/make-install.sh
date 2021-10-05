@@ -26,7 +26,7 @@ echo "deb [arch=arm64] https://download.docker.com/linux/debian buster stable" >
 ##################################################################################################
 
 echo "> Collecting repositories indexes"
-apt update -qq
+apt update -qq --allow-releaseinfo-change
 
 echo "> Collecting packages to bash array"
 packs=(); +(){ packs=(${packs[@]} ${@}); }
