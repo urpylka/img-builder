@@ -34,10 +34,11 @@ packs=(); +(){ packs=(${packs[@]} ${@}); }
 + unzip zip
 + ipython3 python3 python3-dev python3-pip python3-venv
 + screen byobu tmux
-# + nmap
 + git
 + vim nano
+# + nmap
 + tcpdump lsof
++ dnsutils
 # + ltrace
 # + libpoco-dev
 + build-essential cmake
