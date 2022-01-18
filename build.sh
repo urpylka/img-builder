@@ -33,7 +33,7 @@ IMAGE_VERSION="${IMAGE_VERSION:-"\$(get_repo_ver \${MNT_DIR})"}"
 
 IMAGE_NAME="\${PROJECT}-\${IMAGE_VERSION}.img"
 IMAGE_PATH="\${IMAGES_DIR}/\${IMAGE_NAME}"
-IMAGE_SOURCE="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-03-25/2021-03-04-raspios-buster-armhf-lite.zip"
+IMAGE_SOURCE="https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-11-08/2021-10-30-raspios-bullseye-armhf-lite.zip"
 
 ###################################################################################################
 
